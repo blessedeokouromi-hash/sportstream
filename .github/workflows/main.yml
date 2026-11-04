@@ -1,5 +1,5 @@
 
-name: Extract SportStream ZIP
+name: Update SportStream
 
 on:
   workflow_dispatch:
@@ -10,21 +10,43 @@ permissions:
 jobs:
   extract:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Get repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Extract project
+      - name: Extract admin update
         run: |
-         unzip -o sportstream-admin-update.zip
-          cp -R /tmp/sportstream/sportstream/. .
-          rm sportstream-admin-update.zip
+          ZIP="sportstream-admin-update.zip"
 
-      - name: Save extracted files
+          if [ ! -f "$ZIP" ]; then
+            echo "Update ZIP not found!"
+            ls -la
+            exit 1
+          fi
+
+          mkdir -p /tmp/sportstream-update
+          unzip -o "$ZIP" -d /tmp/sportstream-update
+
+          PROJECT_DIR=$(find /tmp/sportstream-update -name package.json -type f | head -n 1 | xargs dirname)
+
+          if [ -z "$PROJECT_DIR" ] || [ ! -d "$PROJECT_DIR" ]; then
+            echo "Project files not found!"
+            exit 1
+          fi
+
+          cp -a "$PROJECT_DIR"/. .
+          rm -f "$ZIP"
+
+      - name: Commit updated project
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           git add -A
-          git commit -m "Extract SportStream project"
-          git push
+
+          if ! git diff --cached --quiet; then
+            git commit -m "Add SportStream admin dashboard"
+            git push
+          fi
           
