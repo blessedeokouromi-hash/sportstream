@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080d18">
+<title>SportStream Admin</title><link rel="stylesheet" href="/admin.css">
+</head>
+<body>
+<header><a class="brand" href="/"><span class="logo">S</span> SPORT<span>STREAM</span></a><span class="admin-label">ADMIN CONSOLE</span><a class="back" href="/">View website ↗</a></header>
+<main>
+<section id="login" class="panel login-panel"><div class="eyebrow">SECURE ACCESS</div><h1>Admin <em>sign in</em></h1><p>Enter the ADMIN_KEY configured in your hosting environment.</p><form id="login-form"><label>Admin key<input id="admin-key" type="password" autocomplete="current-password" required placeholder="Enter your admin key"></label><button class="primary">Unlock dashboard</button><div id="login-error" class="error" role="alert"></div></form></section>
+<section id="dashboard" hidden>
+<div class="heading"><div><div class="eyebrow">SPORTSTREAM CONTROL ROOM</div><h1>Admin <em>dashboard</em></h1><p>Manage fixtures, live match status and advertising.</p></div><button id="logout" class="secondary">Sign out</button></div>
+<div id="notice" class="notice" aria-live="polite"></div>
+<div class="stats"><article><small>TOTAL MATCHES</small><b id="stat-matches">—</b></article><article><small>LIVE NOW</small><b id="stat-live">—</b></article><article><small>AD IMPRESSIONS</small><b id="stat-impressions">—</b></article><article><small>AD CLICKS</small><b id="stat-clicks">—</b></article></div>
+<div class="columns">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">FIXTURE MANAGEMENT</div><h2>Add a match</h2></div></div>
+<form id="match-form" class="form-grid">
+<label>Sport<select name="sport"><option>Football</option><option>Basketball</option><option>Tennis</option><option>Rugby</option><option>Other</option></select></label>
+<label>League<input name="league" required placeholder="Premier League"></label>
+<label>Home team<input name="home" required placeholder="Arsenal"></label><label>Away team<input name="away" required placeholder="Chelsea"></label>
+<label>Kick-off (date & time)<input name="kickoff" type="datetime-local" required></label>
+<label>Status<select name="status"><option value="upcoming">Upcoming</option><option value="live">Live</option><option value="finished">Finished</option></select></label>
+<label>Home score<input name="scoreHome" type="number" min="0" value="0"></label><label>Away score<input name="scoreAway" type="number" min="0" value="0"></label>
+<label class="full">Licensed HLS stream URL (optional)<input name="streamUrl" type="url" placeholder="https://…/playlist.m3u8"></label>
+<label class="check full"><input name="featured" type="checkbox"> Feature this match on the homepage</label>
+<button class="primary full">Add match</button></form></section>
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">REVENUE MANAGEMENT</div><h2>Create an advert</h2></div></div>
+<form id="ad-form" class="form-grid"><label class="full">Advert title<input name="title" required placeholder="Your brand belongs here"></label><label>Placement<select name="placement"><option value="banner">Homepage banner</option><option value="video">Video advert</option><option value="sidebar">Sidebar</option></select></label><label>Label<input name="label" value="Sponsored"></label><label class="full">Image URL (optional)<input name="imageUrl" type="url" placeholder="https://…"></label><label class="full">Video URL (optional)<input name="videoUrl" type="url" placeholder="https://…"></label><label class="full">Destination URL<input name="targetUrl" type="url" placeholder="https://advertiser.com"></label><button class="primary full">Create advert</button></form></section>
+</div>
+<section class="panel table-panel"><div class="panel-head"><div><div class="eyebrow">FIXTURES</div><h2>Manage matches</h2></div><button id="refresh" class="secondary">Refresh</button></div><div class="table-wrap"><table><thead><tr><th>Match</th><th>Status</th><th>Score</th><th>Update</th></tr></thead><tbody id="matches-body"><tr><td colspan="4">Loading…</td></tr></tbody></table></div></section>
+<section class="panel table-panel"><div class="panel-head"><div><div class="eyebrow">CAMPAIGNS</div><h2>Advertising performance</h2></div></div><div class="table-wrap"><table><thead><tr><th>Advert</th><th>Placement</th><th>Impressions</th><th>Clicks</th><th>Active</th></tr></thead><tbody id="ads-body"><tr><td colspan="5">Loading…</td></tr></tbody></table></div></section>
+</section>
+</main><script src="/admin.js"></script></body></html>

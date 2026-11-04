@@ -1,0 +1,73 @@
+{
+  "matches": [
+    {
+      "id": "m1",
+      "sport": "Football",
+      "league": "Premier League",
+      "home": "Arsenal",
+      "away": "Chelsea",
+      "kickoff": "2026-11-04T16:54:47.973Z",
+      "status": "upcoming",
+      "scoreHome": 0,
+      "scoreAway": 0,
+      "streamUrl": "",
+      "streamType": "hls",
+      "featured": true
+    },
+    {
+      "id": "m2",
+      "sport": "Football",
+      "league": "La Liga",
+      "home": "Barcelona",
+      "away": "Real Madrid",
+      "kickoff": "2026-11-04T17:54:47.975Z",
+      "status": "upcoming",
+      "scoreHome": 0,
+      "scoreAway": 0,
+      "streamUrl": "",
+      "streamType": "hls",
+      "featured": true
+    },
+    {
+      "id": "m3",
+      "sport": "Basketball",
+      "league": "NBA",
+      "home": "Lakers",
+      "away": "Warriors",
+      "kickoff": "2026-11-04T18:54:47.975Z",
+      "status": "upcoming",
+      "scoreHome": 0,
+      "scoreAway": 0,
+      "streamUrl": "",
+      "streamType": "hls",
+      "featured": false
+    }
+  ],
+  "ads": [
+    {
+      "id": "a1",
+      "title": "Your brand belongs here",
+      "label": "Sponsored",
+      "placement": "banner",
+      "imageUrl": "",
+      "targetUrl": "#",
+      "active": true,
+      "impressions": 0,
+      "clicks": 0
+    },
+    {
+      "id": "a2",
+      "title": "Advertise on SportStream",
+      "label": "Advertisement",
+      "placement": "video",
+      "videoUrl": "",
+      "targetUrl": "#",
+      "active": true,
+      "impressions": 0,
+      "clicks": 0
+    }
+  ],
+  "users": [],
+  "favorites": [],
+  "events": []
+}
