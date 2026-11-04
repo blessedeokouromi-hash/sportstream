@@ -16,9 +16,9 @@ jobs:
 
       - name: Extract project
         run: |
-          unzip -o sportstream.zip -d /tmp/sportstream
+         unzip -o sportstream-admin-update.zip
           cp -R /tmp/sportstream/sportstream/. .
-          rm sportstream.zip
+          rm sportstream-admin-update.zip
 
       - name: Save extracted files
         run: |
