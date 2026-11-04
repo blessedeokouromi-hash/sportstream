@@ -1,0 +1,8 @@
+{
+  "name": "sportstream",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Free, ad-supported live sports streaming starter",
+  "scripts": {"start":"node src/server.js", "dev":"node --watch src/server.js"},
+  "engines": {"node": ">=18"}
+}
